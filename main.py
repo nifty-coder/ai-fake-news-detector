@@ -168,13 +168,10 @@ def train_model(train_loader, model, optimizer, loss_fn, device):
 
     return total_loss / len(train_loader), correct_predictions, total_predictions
 
-# Prediction Function (No significant changes needed)
+# Prediction Function
 def predict_news(text, model, vocab, device):
     if not text.strip():
         return "No text to process."
-
-    print("Text length:", len(text))
-    print("Preview:", text[:300])  # Preview first 300 chars
 
     token_ids = [vocab.get(token, vocab['<UNK>']) for token in simple_tokenize(text)]
     if len(token_ids) == 0:
@@ -186,7 +183,6 @@ def predict_news(text, model, vocab, device):
     with torch.no_grad():
         output = model(input_tensor)
         score = output.item()
-        print("Model raw output:", score)
         if score > 0.7:  # Adjusted threshold
             return f"TRUE ({score:.4f})"
         elif score < 0.3:  # Adjusted threshold
