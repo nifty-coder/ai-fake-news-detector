@@ -223,6 +223,7 @@ def launch_turtle_ui(model, vocab, device):
         pen.write(result, align="center", font=("Arial", 16, "bold"))
         time.sleep(5)
 
+    print("Exited application.")
     screen.bye()
 
 # Main Function (Modified to load and combine datasets)
