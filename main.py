@@ -5,15 +5,11 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, Dataset, random_split
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
 from torch.nn.utils.rnn import pad_sequence
 from collections import Counter
-import threading
 import turtle
 import nltk
 from nltk.tokenize import sent_tokenize
-from torch.nn import Dropout
 import time
 
 # Download NLTK sentence tokenizer data
